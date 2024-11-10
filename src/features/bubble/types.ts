@@ -6,6 +6,7 @@ export type BubbleTheme = {
   chatWindow?: ChatWindowTheme;
   button?: ButtonTheme;
   tooltip?: ToolTipTheme;
+  disclaimer?: DisclaimerPopUpTheme;
 };
 
 export type TextInputTheme = {
@@ -16,6 +17,10 @@ export type TextInputTheme = {
   maxChars?: number;
   maxCharsWarningMessage?: string;
   autoFocus?: boolean;
+  sendMessageSound?: boolean;
+  sendSoundLocation?: string;
+  receiveMessageSound?: boolean;
+  receiveSoundLocation?: string;
 };
 
 export type UserMessageTheme = {
@@ -46,11 +51,13 @@ export type FeedbackTheme = {
 
 export type ChatWindowTheme = {
   showTitle?: boolean;
+  showAgentMessages?: boolean; // parameter to show agent reasonings when using agentflows
   title?: string;
   titleAvatarSrc?: string;
   welcomeMessage?: string;
   errorMessage?: string;
   backgroundColor?: string;
+  backgroundImage?: string;
   height?: number;
   width?: number;
   fontSize?: number;
@@ -59,7 +66,13 @@ export type ChatWindowTheme = {
   textInput?: TextInputTheme;
   feedback?: FeedbackTheme;
   footer?: FooterTheme;
+  sourceDocsTitle?: string;
   poweredByTextColor?: string;
+  starterPrompts?: string[];
+  starterPromptFontSize?: number;
+  clearChatOnReload?: boolean;
+  dateTimeToggle?: DateTimeToggleTheme;
+  renderHTML?: boolean;
 };
 
 export type ButtonTheme = {
@@ -70,11 +83,30 @@ export type ButtonTheme = {
   bottom?: number;
   right?: number;
   dragAndDrop?: boolean; // parameter to enable drag and drop(true or false)
+  autoWindowOpen?: autoWindowOpenTheme;
 };
+
 export type ToolTipTheme = {
   showTooltip?: boolean; // parameter to enable tooltip(true or false)
   tooltipMessage?: string;
   tooltipBackgroundColor?: string;
   tooltipTextColor?: string;
   tooltipFontSize?: number;
+};
+
+export type autoWindowOpenTheme = {
+  autoOpen?: boolean; //parameter to control automatic window opening
+  openDelay?: number; // Optional parameter for delay time in seconds
+  autoOpenOnMobile?: boolean; // Optional parameter for opening on mobile
+};
+
+export type DisclaimerPopUpTheme = {
+  title?: string;
+  message?: string;
+  buttonText?: string;
+};
+
+export type DateTimeToggleTheme = {
+  date?: boolean;
+  time?: boolean;
 };
